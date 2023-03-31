@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.min.css">
 
+  <link rel="apple-touch-icon" sizes="76x76" href="static/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
+  <link rel="manifest" href="static/favicon/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="stylesheet" href="static/awesome/all.css">
   <title>Главная</title>
 </head>
@@ -2135,7 +2142,7 @@
                 </div>
                 <!-- /.product-about -->
                 <div class="product-controllers">
-                    <div class="product-controllers__item">
+                    <div class="product-controllers__item isFavorites">
                         <div class="product-controllers-svgBx">
                             <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.0987 11.6905L4.9487 10.6405C3.77092 9.56276 2.70714 8.4932 1.75736 7.43187C0.807142 6.37098 0.332031 5.20165 0.332031 3.92387C0.332031 2.87942 0.682031 2.0072 1.38203 1.3072C2.08203 0.607202 2.95425 0.257202 3.9987 0.257202C4.58759 0.257202 5.14314 0.382091 5.66536 0.631869C6.18759 0.882091 6.63203 1.22387 6.9987 1.6572C7.36536 1.22387 7.80981 0.882091 8.33203 0.631869C8.85425 0.382091 9.40981 0.257202 9.9987 0.257202C11.0431 0.257202 11.9154 0.607202 12.6154 1.3072C13.3154 2.0072 13.6654 2.87942 13.6654 3.92387C13.6654 5.20165 13.1931 6.37387 12.2487 7.44054C11.3043 8.5072 10.232 9.57942 9.03203 10.6572L7.8987 11.6905C7.64314 11.935 7.34314 12.0572 6.9987 12.0572C6.65425 12.0572 6.35425 11.935 6.0987 11.6905ZM6.36536 2.99054C6.04314 2.53498 5.6987 2.18765 5.33203 1.94854C4.96536 1.70987 4.52092 1.59054 3.9987 1.59054C3.33203 1.59054 2.77648 1.81276 2.33203 2.2572C1.88759 2.70165 1.66536 3.2572 1.66536 3.92387C1.66536 4.50165 1.87092 5.11542 2.28203 5.7652C2.69314 6.41542 3.18492 7.04609 3.75736 7.6572C4.32936 8.26831 4.91825 8.84054 5.52403 9.37387C6.12936 9.9072 6.62092 10.3461 6.9987 10.6905C7.37648 10.3461 7.86825 9.9072 8.47403 9.37387C9.07936 8.84054 9.66825 8.26831 10.2407 7.6572C10.8127 7.04609 11.3043 6.41542 11.7154 5.7652C12.1265 5.11542 12.332 4.50165 12.332 3.92387C12.332 3.2572 12.1098 2.70165 11.6654 2.2572C11.2209 1.81276 10.6654 1.59054 9.9987 1.59054C9.47647 1.59054 9.03203 1.70987 8.66536 1.94854C8.2987 2.18765 7.95425 2.53498 7.63203 2.99054C7.55425 3.10165 7.45981 3.18498 7.3487 3.24054C7.23759 3.29609 7.12092 3.32387 6.9987 3.32387C6.87648 3.32387 6.75981 3.29609 6.6487 3.24054C6.53759 3.18498 6.44314 3.10165 6.36536 2.99054Z" fill="#0B0B0B"/>
@@ -2249,7 +2256,7 @@
                             <p class="product-details__item-title">Версии</p>
                             <!-- /.product-details__item-title -->
                             <div class="product-versions">
-                                <div class="product-versions__item">CN</div>
+                                <div class="product-versions__item selected">CN</div>
                                 <div class="product-versions__item">Global</div>
                             </div>
                             <!-- /.product-versions -->
@@ -2402,9 +2409,7 @@
         <div class="hits__container">
             <div class="hits-titleBx">
                 <h2 class="hits__title title">Рекомендуемые товары</h2>
-                <!-- /.hits__title title -->
-<!--                <a href="#" class="hits__products">Все товары</a>-->
-                <!-- /.hits__products -->
+                <a href="#" class="hits__products">Все товары</a>
             </div>
             <!-- /.hits-titleBx -->
             <div class="hits-inner">
