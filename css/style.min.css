@@ -2229,8 +2229,13 @@ body {
 .product__article {
   display: none;
 }
-.product-controllers {
+.product-controllers__share {
   display: none;
+}
+@media (max-width: 480px) {
+  .product-controllers__share {
+    display: flex;
+  }
 }
 .product-selectBx {
   align-items: center;
@@ -2330,6 +2335,7 @@ body {
   .product-controllers__share {
     font-size: 0.75rem;
     font-family: "Inter-Medium", sans-serif;
+    display: flex;
   }
   .product-controllers__share svg {
     margin-right: 8px;
