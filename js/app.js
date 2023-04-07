@@ -194,7 +194,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextArrow: arrowRight,
                 speed: 300,
                 onAfterChange: function (slide, index) {
-                    console.log(1)
                     if (index <= 0) {
                         alert("Первый слайд!");
                     }
@@ -220,7 +219,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 ]
             });
             $(el).on('afterChange', function(slide, index){
-                console.log(index)
                 if (index.currentSlide <= 0) {
                     arrowLeft.classList.add('hide')
                 }else{
