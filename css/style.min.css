@@ -372,6 +372,21 @@ body {
   background: #CE011C;
 }
 
+.fancybox__container {
+  max-width: none !important;
+}
+
+.f-button {
+  background-color: transparent !important;
+}
+.f-button * {
+  stroke: #FFFFFF !important;
+}
+
+:root {
+  --f-button-svg-fill: #fff;
+}
+
 .tb {
   border: 2px solid #DB0E29;
   border-radius: 6px;
@@ -1996,6 +2011,7 @@ body {
 .product-slider__item {
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 10px;
+  cursor: pointer;
 }
 .product-slider__item-imgBx {
   min-height: 300px;

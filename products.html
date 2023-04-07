@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.min.css">
 
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+  />
+
   <link rel="apple-touch-icon" sizes="76x76" href="static/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
@@ -2409,19 +2414,19 @@
                             <!-- /.product-slider__sale -->
                             <div class="product-slider">
                                 <div class="product-slider__item">
-                                    <div class="product-slider__item-imgBx -ibg"><img src="images/hits/4.png" alt="">
+                                    <div class="product-slider__item-imgBx -ibg"><img data-fancybox="gallery" src="images/hits/4.png" alt="">
                                     </div>
                                 </div>
                                 <div class="product-slider__item">
-                                    <div class="product-slider__item-imgBx -ibg"><img src="images/products/2.png" alt="">
+                                    <div class="product-slider__item-imgBx -ibg"><img data-fancybox="gallery" src="images/products/2.png" alt="">
                                     </div>
                                 </div>
                                 <div class="product-slider__item">
-                                    <div class="product-slider__item-imgBx -ibg"><img src="images/products/3.png" alt="">
+                                    <div class="product-slider__item-imgBx -ibg"><img data-fancybox="gallery" src="images/products/3.png" alt="">
                                     </div>
                                 </div>
                                 <div class="product-slider__item">
-                                    <div class="product-slider__item-imgBx -ibg"><img src="images/products/4.png" alt="">
+                                    <div class="product-slider__item-imgBx -ibg"><img data-fancybox="gallery" src="images/products/4.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -2505,7 +2510,7 @@
                         </div>
                         <!-- /.product-details__item description -->
 
-<!--                        <div class="product-details__item specification">-->
+                        <div class="product-details__item specification">
 <!--                            <p class="product-details__item-title">Характеристики</p>-->
 <!--                            &lt;!&ndash; /.product-details__item-title &ndash;&gt;-->
 <!--                            <div class="product-specification">-->
@@ -2524,24 +2529,24 @@
 <!--                            </div>-->
 <!--                            &lt;!&ndash; /.product-specification &ndash;&gt;-->
 <!--                            <a href="" class="product-specification__more">Все характеристики</a>-->
-<!--                            &lt;!&ndash; /.product-specification__more &ndash;&gt;-->
-<!--                            <div class="product-question">-->
-<!--                                <div class="product-question-titleBx">-->
-<!--                                    <p class="product-question__title">Появились вопросы о товаре?</p>-->
-<!--                                    &lt;!&ndash; /.product-question__title &ndash;&gt;-->
-<!--                                    <p class="product-question__subtitle">Наш консультант поможет с выбором товара</p>-->
-<!--                                    &lt;!&ndash; /.product-question__subtitle &ndash;&gt;-->
-<!--                                    <a href="#" class="product-question__link">Получить консультацию</a>-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; /.product-question-titleBx &ndash;&gt;-->
-<!--                                <div class="product-question-imgBx">-->
-<!--                                    <img src="images/products/question.png" alt="">-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; /.product-question-imgBx &ndash;&gt;-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.product-question &ndash;&gt;-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; /.product-details__item &ndash;&gt;-->
+                            <!-- /.product-specification__more -->
+                            <div class="product-question">
+                                <div class="product-question-titleBx">
+                                    <p class="product-question__title">Появились вопросы о товаре?</p>
+                                    <!-- /.product-question__title -->
+                                    <p class="product-question__subtitle">Наш консультант поможет с выбором товара</p>
+                                    <!-- /.product-question__subtitle -->
+                                    <a href="#" class="product-question__link">Получить консультацию</a>
+                                </div>
+                                <!-- /.product-question-titleBx -->
+                                <div class="product-question-imgBx">
+                                    <img src="images/products/question.png" alt="">
+                                </div>
+                                <!-- /.product-question-imgBx -->
+                            </div>
+                            <!-- /.product-question -->
+                        </div>
+                        <!-- /.product-details__item -->
                     </div>
                     <!-- /.product-details -->
 
@@ -3124,6 +3129,7 @@
 </main>
 <script defer src="./static/plugins/jquery.min.js"></script>
 <script defer src="./static/plugins/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <script defer src="js/app.js"></script>
 </body>

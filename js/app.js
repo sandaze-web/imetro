@@ -503,6 +503,11 @@ document.addEventListener('DOMContentLoaded', function () {
             })
         })
     }
+
+    if(document.querySelector('img[data-fancybox="gallery"]')) {
+        console.log(1)
+        Fancybox.bind('[data-fancybox="gallery"]', {  });
+    }
 })
 
 let hideItemsCatalog = (count) => {
