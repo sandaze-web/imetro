@@ -1110,6 +1110,7 @@ body {
 }
 .hits-controllers__compare path, .hits-controllers__favourites path {
   fill: #92989F;
+  transition: 0.4s;
 }
 .hits-controllers__compare.selected {
   border-color: #DB0E29;

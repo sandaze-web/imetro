@@ -496,6 +496,15 @@ document.addEventListener('DOMContentLoaded', function () {
             item.classList.toggle('active')
         })
     }
+
+    if(document.querySelector('.controller-b')) {
+        let controllersItem = document.querySelectorAll('.controller-b')
+        controllersItem.forEach(el => {
+            el.addEventListener('click', () => {
+                el.classList.toggle('selected')
+            })
+        })
+    }
 })
 
 let hideItemsCatalog = (count) => {
