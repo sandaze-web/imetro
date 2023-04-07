@@ -2507,6 +2507,9 @@ body {
   .product-rateBx__title {
     display: none;
   }
+  .product-rateBx__rating {
+    margin-left: 0;
+  }
   .product-stockBx {
     display: flex;
   }
