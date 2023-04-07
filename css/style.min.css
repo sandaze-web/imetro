@@ -2513,6 +2513,9 @@ body {
   transition: 0.4s;
   cursor: pointer;
 }
+.product-variants__item:hover {
+  border-color: #92989F;
+}
 .product-variants__item.active, .product-variants__item.selected {
   border-color: #DB0E29;
 }
