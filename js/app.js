@@ -175,6 +175,8 @@ isWebp()
 // });
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    togglePopupWindows()
     if(document.querySelector('.hits-box') !== null) {
     }
 
@@ -230,6 +232,9 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
 
+
+    }
+    if(document.querySelector('.hits-controllers')) {
         //сообщение при добавлении в корзину
         let basketButtons = document.querySelectorAll('.hits-controllers__basket'),
             message = document.querySelector('.header-message'),
@@ -508,6 +513,159 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(1)
         Fancybox.bind('[data-fancybox="gallery"]', {  });
     }
+
+    if(document.querySelector('.instruments-box')) {
+        let arrowRight = document.querySelector('.instruments-next'),
+            arrowLeft = document.querySelector('.instruments-prev'),
+            itemsLength = document.querySelectorAll('.instruments__item').length
+        if(window.innerWidth > 768) {
+            $('.instruments-box').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                infinite: false,
+                touchMove: false,
+                prevArrow: arrowLeft,
+                nextArrow: arrowRight,
+                speed: 300,
+                onAfterChange: function (slide, index) {
+                    if (index <= 0) {
+                        alert("Первый слайд!");
+                    }
+                    if (itemsLength >= index) {
+                        alert("Последний слайд!");
+                    }
+                },
+                responsive: [
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1.8,
+                            touchMove: true,
+                        }
+                    },
+                    {
+                        breakpoint: 769,
+                        settings: {
+                            slidesToShow: 2.3,
+                            touchMove: true,
+                        }
+                    },
+                ]
+            });
+
+            $('.instruments-box').on('afterChange', function(slide, index){
+                if (index.currentSlide <= 0) {
+                    arrowLeft.classList.add('hide')
+                }else{
+                    arrowLeft.classList.remove('hide')
+                }
+                if (itemsLength >= index) {
+                    alert("Последний слайд!");
+                }
+            });
+        }
+        if(window.innerWidth <= 768) {
+            let titleItem = document.querySelectorAll('.product-list-filter__item-title')
+
+            titleItem.forEach(item => {
+                item.addEventListener('click', () => {
+                    let content = item.parentNode.querySelector('.product-list-filter-wrapper')
+
+                    if(content.style.maxHeight){
+                        content.style.maxHeight = null;
+                        item.classList.remove('active');
+                    }else{
+                        document.querySelectorAll('.faq-answerBx').forEach(el => el.style.maxHeight = null);
+                        document.querySelectorAll('.faq__item').forEach(el => el.classList.remove('active'));
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        item.classList.add('active');
+                    }
+
+                })
+            })
+        }
+    }
+
+    //слайдер цены
+    if(document.querySelector('.filter-range')) {
+        let $range = $('.filter-range')
+        let minRange = parseInt($range.attr('data-min')) ,
+            maxRange = parseInt($range.attr('data-max'))
+        let $inputMax = $('.filter-max'),
+            $inputMin = $('.filter-min')
+        $inputMin.attr('size', String(minRange).length - 1)
+        $inputMax.attr('size', String(maxRange).length - 1)
+
+        $range.slider({
+            range: true,
+            min: minRange,
+            max: maxRange,
+            values: [ minRange, maxRange  ],
+            slide: function( event, ui ) {
+                $inputMin.val( 'от ' + ui.values[ 0 ]);
+                $inputMin.attr('size', String(ui.values[ 0 ]).length - 1)
+
+                $inputMax.val( 'до ' + ui.values[ 1 ]);
+                $inputMax.attr('size', String(ui.values[ 1 ]).length - 1)
+            }
+        });
+
+        let handleForMin = (e) => {
+            let count = parseInt($inputMin.val().replace(/\D+/g,""))
+
+            if(!isNaN(count) && count >= minRange) {
+                $range.slider( "values", 0, count )
+            }else{
+                count = minRange
+                $range.slider( "values", 0, `${minRange}` )
+                $inputMin.val(`от ${minRange}`)
+            }
+
+            $inputMin.attr('size', String(count).length - 1)
+        }
+
+        let handleForMax = (e) => {
+            let count = parseInt($inputMax.val().replace(/\D+/g,""))
+
+
+            if(!isNaN(count) && count <= maxRange && count > minRange) {
+                $range.slider( "values", 1, count )
+            }else{
+                count = minRange
+                $range.slider( "values", 1, `${minRange}` )
+                $inputMax.val(`до ${minRange}`)
+            }
+
+            $inputMax.attr('size', String(count).length - 1)
+        }
+
+        $inputMin.on('keyup', (e) => {
+            if(e.which === 13) handleForMin()
+        })
+        $inputMax.on('keyup', (e) => {
+            if(e.which === 13) handleForMax()
+        })
+        window.addEventListener('click', (e) => {
+            handleForMin()
+            handleForMax()
+        })
+    }
+
+    if(document.querySelector('.product-list-filter__item-formBx form.hidden')) {
+        hidefilters()
+    }
+
+    if(document.querySelector('.product-list-filter-tags')) {
+        if(window.innerWidth <= 768) {
+            $(".product-list-filter-tags").slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                infinite: false,
+                variableWidth: true,
+            });
+        }
+    }
 })
 
 let hideItemsCatalog = (count) => {
@@ -520,6 +678,21 @@ let hideItemsCatalog = (count) => {
                 if (!hidden[i]) return this.outerHTML = "";
 
                 hidden[i].classList.add('flex');
+            }
+        });
+    }
+}
+let hidefilters = (count) => {
+    let more = document.querySelectorAll(`.product-list-filter-more`);
+
+    for (let i = 0; i < more.length; i++) {
+        more[i].addEventListener('click', function() {
+            let showPerClick = 3;
+            let hidden = this.parentNode.querySelectorAll('.product-list-filter__item form.hidden');
+            for (let i = 0; i < showPerClick; i++) {
+                if (!hidden[i]) return this.outerHTML = "";
+
+                hidden[i].classList.remove('hidden');
             }
         });
     }
