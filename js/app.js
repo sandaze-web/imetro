@@ -205,6 +205,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 responsive: [
                     {
+                        breakpoint: 360,
+                        settings: {
+                            slidesToShow: 1.3,
+                            touchMove: true,
+                        }
+                    },
+                    {
                         breakpoint: 480,
                         settings: {
                             slidesToShow: 1.8,

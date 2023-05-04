@@ -924,6 +924,30 @@ body {
   font-size: 0.625rem;
   margin-left: 8px;
 }
+.hits-selectBx {
+  margin: 0 20px 20px;
+  position: relative;
+}
+.hits-selectBx:after {
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  right: 30px;
+  z-index: 3;
+}
+.hits-selectBx select {
+  padding: 14px 25px;
+  font-size: 1rem;
+  font-family: "Inter-Medium", sans-serif;
+  border: 2px solid #E1E2E6;
+  border-radius: 6px;
+  width: 100%;
+  appearance: none;
+}
 .hits-inner {
   position: relative;
 }
@@ -1010,6 +1034,7 @@ body {
   margin: 20px;
   flex-grow: 1;
   min-height: 205px;
+  max-height: 205px;
 }
 .hits__item-imgBx-panel {
   position: absolute;
@@ -1042,14 +1067,12 @@ body {
 .hits__item-price {
   font-size: 1.375rem;
   font-family: "Inter-Bold", sans-serif;
-  margin-top: auto;
   padding-top: 12px;
   padding-left: 20px;
 }
 .hits-priceBx {
   display: flex;
   align-items: center;
-  margin-top: auto;
   padding-top: 12px;
   padding-left: 20px;
 }
@@ -1206,11 +1229,22 @@ body {
     padding-top: 12px;
     padding-left: 15px;
     line-height: 1.5rem;
+    margin-bottom: auto;
+  }
+  .hits-selectBx {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+  .hits-selectBx select {
+    padding: 12px 20px;
+    font-size: 0.875rem;
   }
   .hits-priceBx {
     align-items: flex-start;
     flex-direction: column-reverse;
     padding-left: 15px;
+    margin-bottom: auto;
   }
   .hits-priceBx__old {
     margin: 0;
@@ -1237,6 +1271,7 @@ body {
     align-items: center;
     max-width: none;
     width: 56px;
+    flex-grow: 1;
   }
   .hits-controllers__basket span {
     display: none;
@@ -1253,6 +1288,11 @@ body {
   .hits-controllers__compare, .hits-controllers__favourites {
     width: 42px;
     height: 42px;
+    flex-grow: 1;
+  }
+  .hits-controllers__check {
+    text-align: center;
+    font-size: 0.875rem;
   }
 }
 
@@ -3348,6 +3388,14 @@ body {
   }
   .product-list-products .hits__item-imgBx img {
     border-radius: 10px;
+  }
+  .product-list-products .hits-selectBx {
+    margin-left: 15px;
+    margin-right: 0;
+    margin-top: -5px;
+  }
+  .product-list-products .hits-selectBx select {
+    padding: 8px 25px;
   }
   .product-list-products .hits__item-title {
     display: -webkit-box;
