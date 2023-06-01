@@ -4182,6 +4182,12 @@ body {
   display: block;
   opacity: 1;
 }
+.order-stepsBx-wrapper.hide .order__item-selectBx {
+  display: none;
+}
+.order-stepsBx-wrapper.hide .order__item-button {
+  display: none;
+}
 .order-stepsBx-wrapper:first-child .order__item-button {
   display: block;
   opacity: 1;

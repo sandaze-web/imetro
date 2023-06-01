@@ -786,7 +786,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 if(numStep + 1 < allMethodContent.length) {
                     //однуление всех значений каждого шага
                     document.querySelectorAll('.order-item-content').forEach(content => content.style.maxHeight = null)
-                    document.querySelectorAll('.order-stepsBx-wrapper').forEach(el => el.classList.add('hide'))
+                    document.querySelectorAll('.order-stepsBx-wrapper').forEach(el => {
+                        el.classList.add('hide')
+                        if(el.querySelector('.order__item-selectBx')) {
+                            el.querySelector('.order__item-selectBx').style.display = 'none';
+                        }
+                    })
                     document.querySelectorAll('.order-stepsBx-wrapper .order__item-button').forEach(el => el.style.display = 'none')
 
                     //если не последний то разворачиваем ледующий
