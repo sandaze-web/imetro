@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="741098f5-b18b-472a-b545-f2543608cc8a" name="Changes" comment="" />
+    <list default="true" id="741098f5-b18b-472a-b545-f2543608cc8a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.min.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +26,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Work/pet-project/imetro2",
+    "last_opened_file_path": "D:/Work/pet-project/volt",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -38,6 +41,8 @@
       <updated>1679390593262</updated>
       <workItem from="1679390595962" duration="128000" />
       <workItem from="1679549779368" duration="121000" />
+      <workItem from="1685098920305" duration="14000" />
+      <workItem from="1685101581742" duration="705000" />
     </task>
     <servers />
   </component>

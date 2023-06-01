@@ -221,7 +221,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     {
                         breakpoint: 769,
                         settings: {
-                            slidesToShow: 2.3,
+                            slidesToShow: 2.1,
+                            touchMove: true,
+                        }
+                    },
+                    {
+                        breakpoint: 1080,
+                        settings: {
+                            slidesToShow: 3,
                             touchMove: true,
                         }
                     },
@@ -672,6 +679,132 @@ document.addEventListener('DOMContentLoaded', function () {
                 variableWidth: true,
             });
         }
+    }
+
+    if(document.querySelector('.mask-phone')) {
+        $('.mask-phone').mask('+7 (999) 999-99-99')
+    }
+
+    if(document.querySelector('.order')) {
+        let basketCheckoutBtn = document.querySelector('.basket-detail__button'),
+            orderBack = document.querySelector('.order__back'),
+            basket = document.querySelector('.basket'),
+            header = document.querySelector('.header'),
+            crumbs = document.querySelector('.crumbs'),
+            order = document.querySelector('.order'),
+            customHeader = document.querySelector('.custom-header'),
+            orderHits = document.querySelector('.order-hits')
+
+        basketCheckoutBtn.addEventListener('click', () => {
+            basket.classList.toggle('hide')
+            header.classList.toggle('hide')
+            crumbs.classList.toggle('hide')
+            orderHits.classList.toggle('hide')
+            order.classList.toggle('show')
+            customHeader.classList.toggle('show')
+            document.querySelector('.order-stepsBx-wrapper.active .order-item-content').style.maxHeight = document.querySelector('.order-stepsBx-wrapper.active .order-item-content').scrollHeight + 'px'
+            $('html, body').stop().animate({
+                scrollTop: $('.custom-header').offset().top
+            }, 700);
+        })
+        orderBack.addEventListener('click', () => {
+            basket.classList.toggle('hide')
+            header.classList.toggle('hide')
+            crumbs.classList.toggle('hide')
+            orderHits.classList.toggle('hide')
+            order.classList.toggle('show')
+            customHeader.classList.toggle('show')
+            $('html, body').stop().animate({
+                scrollTop: $('body').offset().top
+            }, 700);
+        })
+
+
+        let deliveryMethods = document.querySelectorAll('.order-delivery-method'),
+            deliveryVariants = document.querySelectorAll('.order-delivery-variant')
+
+        deliveryMethods.forEach((method, index) => {
+            method.addEventListener('click', () => {
+                deliveryVariants.forEach(el => el.classList.remove('active'))
+                deliveryVariants[index].classList.add('active')
+                method.closest('.order-item-content').style.maxHeight = method.closest('.order-item-content').scrollHeight + 'px'
+            })
+        })
+
+        let paymentVariants = document.querySelectorAll('.order-methodBx label')
+        paymentVariants.forEach(el => {
+            el.addEventListener('click', () => {
+                let {text: hint} = el.dataset
+                el.closest('.order-stepsBx-wrapper').querySelector('.order__item-desc').textContent = hint
+            })
+        })
+
+        let selectCity = document.querySelector('.order__item-select')
+        selectCity.addEventListener('change', (e) => {
+            e.target.value === 'Москве' ? document.querySelector('.order__item-desc-city').textContent = `Доставка по Москве`
+                                        : document.querySelector('.order__item-desc-city').textContent = `Доставка по Санкт-Петербургу`
+        })
+
+        let stepsButton = document.querySelectorAll('.order-stepsBx-wrapper .order__item-button'),
+            allMethodContent = document.querySelectorAll('.order-item-content')
+
+        stepsButton.forEach(button => {
+            button.addEventListener('click', () => {
+                let parent = button.closest('.order-stepsBx-wrapper'),
+                    numStep = parseInt(parent.dataset.step),
+                    nextStepBx = document.querySelector(`.order-stepsBx-wrapper[data-step="${numStep+1}"]`),
+                    nextContent = nextStepBx !== null ? nextStepBx.querySelector('.order-item-content') : null
+                if(numStep + 1 < allMethodContent.length) {
+                    //однуление всех значений каждого шага
+                    document.querySelectorAll('.order-item-content').forEach(content => content.style.maxHeight = null)
+                    document.querySelectorAll('.order-stepsBx-wrapper .order__item-button').forEach(el => el.style.display = 'none')
+                    //если не последний то разворачиваем ледующий
+                    if(nextContent) {
+                        nextContent.style.maxHeight = nextContent.scrollHeight + 'px' // разворачиваем следующий шаг
+                        nextStepBx.querySelector('.order__item-button').style.display = 'block' // показываем кнопку следующиего этапа
+                        parent.classList.add('hide') // вешаем класс, чтобы показать и убрать ненужные/нужные блоки
+                        nextStepBx.classList.remove('hide') // вешаем класс, чтобы показать и убрать ненужные/нужные блоки
+                        setTimeout(() => {
+                            nextStepBx.querySelector('.order__item-button').style.opacity = '1'
+                        }, 600)
+                        if(numStep === 0) {
+                            document.querySelector('.order__item-selectBx').style.display = 'none' // если перешли от первого шага, то скрываем select
+                        }
+                    }
+                }
+
+            })
+        })
+
+        //кнопки Изменить
+        let buttonsChange = document.querySelectorAll('.order__item-change')
+        buttonsChange.forEach(el => {
+            el.addEventListener('click', () => {
+                let parent = el.closest('.order-stepsBx-wrapper'),
+                    numStep = parseInt(parent.dataset.step),
+                    currentContent = parent !== null ? parent.querySelector('.order-item-content') : null
+                if(numStep + 1 < allMethodContent.length) {
+                    //однуление всех значений каждого шага
+                    document.querySelectorAll('.order-item-content').forEach(content => content.style.maxHeight = null)
+                    document.querySelectorAll('.order-stepsBx-wrapper').forEach(el => el.classList.add('hide'))
+                    document.querySelectorAll('.order-stepsBx-wrapper .order__item-button').forEach(el => el.style.display = 'none')
+
+                    //если не последний то разворачиваем ледующий
+                    if(currentContent) {
+                        currentContent.style.maxHeight = currentContent.scrollHeight + 'px' //разворачиваем содержимое блока
+                        parent.querySelector('.order__item-button').style.display = 'block' //показываем кнопку
+                        // parent.querySelector('.order__item-change').style.opacity = '1' // показывает кнопку изменить
+                        parent.classList.remove('hide') //убирает и показывает скрытые элементы
+                        setTimeout(() => {
+                            parent.querySelector('.order__item-button').style.opacity = '1'
+                        }, 600)
+                        if(numStep === 0) { // если переход на первый этап, то показываем select
+                            document.querySelector('.order__item-selectBx').style.display = 'block'
+                        }
+                    }
+                }
+            })
+        })
     }
 })
 
