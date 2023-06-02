@@ -690,6 +690,7 @@ document.addEventListener('DOMContentLoaded', function () {
             orderBack = document.querySelector('.order__back'),
             basket = document.querySelector('.basket'),
             header = document.querySelector('.header'),
+            headerTop = document.querySelector('.header-top'),
             crumbs = document.querySelector('.crumbs'),
             order = document.querySelector('.order'),
             customHeader = document.querySelector('.custom-header'),
@@ -699,6 +700,7 @@ document.addEventListener('DOMContentLoaded', function () {
             basket.classList.toggle('hide')
             header.classList.toggle('hide')
             crumbs.classList.toggle('hide')
+            headerTop.classList.toggle('hide')
             orderHits.classList.toggle('hide')
             order.classList.toggle('show')
             customHeader.classList.toggle('show')
@@ -710,6 +712,7 @@ document.addEventListener('DOMContentLoaded', function () {
         orderBack.addEventListener('click', () => {
             basket.classList.toggle('hide')
             header.classList.toggle('hide')
+            headerTop.classList.toggle('hide')
             crumbs.classList.toggle('hide')
             orderHits.classList.toggle('hide')
             order.classList.toggle('show')
